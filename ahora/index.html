@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecnología de Ahora - Últimos artículos</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      color: #2c3e50;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #7f8c8d;
+    }
+
+    .controles {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    #feed-contenedor {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    article {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      background: #fff;
+      transition: transform 0.2s;
+    }
+
+    article:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    article h2 {
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    article h2 a {
+      text-decoration: none;
+      color: #2980b9;
+    }
+
+    article h2 a:hover {
+      text-decoration: underline;
+    }
+
+    article p {
+      margin: 10px 0;
+    }
+
+    article small {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    .error {
+      color: #e74c3c;
+      background: #fdedec;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tecnología de Ahora</h1>
+    <p>Últimos artículos sobre tecnología.</p>
+  </header>
+
+  <div class="controles">
+    <button id="btn-actualizar">Actualizar feed</button>
+  </div>
+
+  <div id="feed-contenedor">
+    <p>Cargando artículos...</p>
+  </div>
+
+  <script>
+    async function cargarFeed() {
+      const contenedor = document.getElementById('feed-contenedor');
+
+      try {
+        const respuesta = await fetch('feed-tecnologia.rss');
+
+        if (!respuesta.ok) {
+          throw new Error(`No se pudo cargar el feed (${respuesta.status})`);
+        }
+
+        const texto = await respuesta.text();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(texto, 'application/xml');
+
+        const items = xml.querySelectorAll('item');
+
+        if (items.length === 0) {
+          contenedor.innerHTML = '<p>No se encontraron artículos en el feed.</p>';
+          return;
+        }
+
+        contenedor.innerHTML = '';
+
+        items.forEach(item => {
+          const titulo = item.querySelector('title')?.textContent || '(sin título)';
+          const descripcion = item.querySelector('description')?.textContent || '';
+          const enlace = item.querySelector('link')?.textContent || '#';
+          const fechaTexto = item.querySelector('pubDate')?.textContent || '';
+
+          const fechaFormateada = fechaTexto
+            ? new Date(fechaTexto).toLocaleDateString('es-ES', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })
+            : 'Fecha desconocida';
+
+          const articulo = document.createElement('article');
+          articulo.innerHTML = `
+            <h2><a href="${enlace}" target="_blank" rel="noopener">${titulo}</a></h2>
+            <p>${descripcion}</p>
+            <small>Publicado: ${fechaFormateada}</small>
+          `;
+          contenedor.appendChild(articulo);
+        });
+
+      } catch (error) {
+        contenedor.innerHTML = `
+          <div class="error">
+            <strong>Error al cargar el feed:</strong><br>${error.message}
+          </div>
+        `;
+      }
+    }
+
+    document.getElementById('btn-actualizar').addEventListener('click', cargarFeed);
+
+    // Cargar al iniciar
+    cargarFeed();
+  </script>
+
+</body>
+</html>

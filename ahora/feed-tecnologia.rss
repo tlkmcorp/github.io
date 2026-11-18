@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tecnología de Ahora - Feed RSS</title>
+    <description>Noticias y artículos sobre tecnología.</description>
+    <link>https://www.tecnologiadeahora.es/</link>
+    <language>es-ES</language>
+    <pubDate>Tue, 17 Nov 2026 08:00:00 GMT</pubDate>
+    <atom:link href="https://tlkmcorp.github.io/github.io/ahora/feed-tecnologia.rss" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>Inteligencia artificial generativa revoluciona el diseño de software en 2026</title>
+      <description>Nuevas herramientas de IA generativa reducen en un 40% el tiempo de desarrollo de aplicaciones, permitiendo a los equipos crear prototipos funcionales en cuestión de horas.</description>
+      <link>https://www.tecnologiadeahora.es/articulos/ia-generativa-diseno-software-2026</link>
+      <guid isPermaLink="false">technews-2026-11-17-001</guid>
+      <pubDate>Tue, 17 Nov 2026 07:30:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Computación cuántica: avance en corrección de errores estabiliza qubits por primera vez</title>
+      <description>Investigadores logran mantener estados cuánticos estables durante más de un minuto, un hito que acerca la computación cuántica práctica a la industria.</description>
+      <link>https://www.tecnologiadeahora.es/articulos/computacion-cuantica-correccion-errores</link>
+      <guid isPermaLink="false">technews-2026-11-16-002</guid>
+      <pubDate>Mon, 16 Nov 2026 14:15:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Ciberseguridad: nueva ola de ataques ransomware afecta a infraestructuras críticas</title>
+      <description>Empresas de energía y transporte reportan incidentes de ransomware sofisticado; expertos recomiendan actualizar protocolos de respaldo y autenticación multifactor.</description>
+      <link>https://www.tecnologiadeahora.es/articulos/cibersaluda-ransomware-infraestructura-critica</link>
+      <guid isPermaLink="false">technews-2026-11-15-003</guid>
+      <pubDate>Sun, 15 Nov 2026 09:45:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Realidad mixta llega al aula: escuelas piloto implementan clases inmersivas con gafas AR</title>
+      <description>Un programa educativo permite a estudiantes explorar el cuerpo humano y el sistema solar en 3D, mejorando la retención de conocimientos según los primeros resultados.</description>
+      <link>https://www.tecnologiadeahora.es/articulos/realidad-mixta-educacion-gafas-ar</link>
+      <guid isPermaLink="false">technews-2026-11-14-004</guid>
+      <pubDate>Sat, 14 Nov 2026 11:20:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Vehículos eléctricos autónomos obtienen aprobación para circular sin conductor en tres ciudades</title>
+      <description>Reguladores autorizan el servicio de robotaxis en zonas urbanas delimitadas, marcando un paso clave hacia la movilidad autónoma a gran escala.</description>
+      <link>https://www.tecnologiadeahora.es/articulos/vehiculos-electricos-autonomos-aprobacion</link>
+      <guid isPermaLink="false">technews-2026-11-13-005</guid>
+      <pubDate>Fri, 13 Nov 2026 16:00:00 GMT</pubDate>
+    </item>
+
+  </channel>
+</rss>
